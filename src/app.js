@@ -37,6 +37,16 @@ app.patch("/users/update/:index", (req, res) => {
 
 // delete user
 
+app.delete('/users/delete/:index',(req,res)=>{
+let {index} = req.params
+console.log(index);
+users.splice(index,1)
 
+
+    return res.status(200).json({
+      message: "user is deleted successfully",
+      users,
+  });
+})
 
 module.exports = app;
